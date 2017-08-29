@@ -1,6 +1,8 @@
 variable "INSTANCES" {}
 variable "AMI" {}
-variable "AZ" {}
+variable "AZ" {
+  type = "list"
+}
 
 
 resource "aws_instance" "example" {
@@ -8,7 +10,9 @@ resource "aws_instance" "example" {
   ami = "${var.AMI}"
   instance_type = "t2.micro"
   availability_zone = "${element(var.AZ, count.index)}"
-  tags {
-    Name = "example-${count.index}"
-  }
+}
+
+
+output "privips" {
+  value = ["${aws_instance.example.*.private_ip}"]
 }

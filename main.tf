@@ -22,13 +22,14 @@ module "latestAMI" {
   source = "./latestAMI"
 }
 
+/*
 module "ec2dist" {
   source = "./ec2dist"
   INSTANCES = 3
   AZ = "${module.scan.names}"
-  AMI = "${module.latestAMI.latest_amazon_ami}"
+  AMI = "${module.latestAMI.amiid}"
 }
-
+*/
 output "account_id" {
   value = "${module.caller.account_id}"
 }
@@ -55,4 +56,8 @@ output "SnetIDS" {
 
 output "SG" {
   value = "${module.scan.security_group}"
+}
+
+output "INFO" {
+  value = "${module.latestAMI.amiidlatest}"
 }
