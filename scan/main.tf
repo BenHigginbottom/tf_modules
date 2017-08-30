@@ -21,6 +21,13 @@ data "aws_security_group" "Testing" {
   }
 }
 
+data "aws_subnet" "databasesnet" {
+	filter {
+	name = "tag:Usage"
+	values = ["Data"]
+	}
+}
+
 output "names" {
   value = "${data.aws_availability_zones.available.names}"
 }
@@ -35,4 +42,8 @@ output "subnets" {
 
 output "security_group" {
   value = "${data.aws_security_group.Testing.id}"
+}
+
+output "dbsnet" {
+	value = "${data.aws_subnet.databasesnet.id}"
 }

@@ -22,13 +22,25 @@ module "latestAMI" {
   source = "./latestAMI"
 }
 
+
 module "ec2dist" {
   source = "./ec2dist"
   INSTANCES = 3
   AZ = "${module.scan.names}"
   AMI = "${module.latestAMI.ec2linuxd}"
+  VPCSG = "${module.scan.security_group}"
 }
 
+
+module "ELB" {
+  source = "./ELB"
+  NAME = "Bens-Test-ELB"
+  AZ = "${module.scan.names}"
+  PORT = "80"
+  DESTPORT = "443"
+  PROTOCOL = "http"
+  INSTANCES = "${module.ec2dist.privips}"
+}
 
 /*Debug Outputs*/
 
@@ -62,4 +74,8 @@ output "SG" {
 
 output "info" {
   value = "${module.latestAMI.ec2linuxd}"
+}
+
+output "DataSnet" {
+  value = "${module.scan.dbsnet}"
 }
