@@ -1,5 +1,5 @@
 variable "NAME" {}
-variable "AZ" {
+variable "SNET" {
   type = "list"
 }
 variable "PORT" {}
@@ -10,7 +10,7 @@ variable "INSTANCES" {}
 
 resource "aws_elb" "moduleelb" {
   name = "${var.NAME}"
-  availability_zones = ["${var.AZ}"]
+  
   listener {
     instance_port     = "${var.DESTPORT}"
     instance_protocol = "${var.PROTOCOL}"

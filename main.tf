@@ -28,6 +28,7 @@ module "ec2dist" {
   INSTANCES = 3
   AZ = "${module.scan.names}"
   AMI = "${module.latestAMI.ec2linuxd}"
+  INSTTYPE = "t2.micro"
   VPCSG = "${module.scan.security_group}"
 }
 
@@ -35,7 +36,7 @@ module "ec2dist" {
 module "ELB" {
   source = "./ELB"
   NAME = "Bens-Test-ELB"
-  AZ = "${module.scan.names}"
+  SNET = "${module.scan.subnets}"
   PORT = "80"
   DESTPORT = "443"
   PROTOCOL = "http"
