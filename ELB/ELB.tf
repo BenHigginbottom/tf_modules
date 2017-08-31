@@ -4,18 +4,20 @@ variable "SNET" {
 }
 variable "PORT" {}
 variable "DESTPORT" {}
-variable "PROTOCOL" {}
 variable "INSTANCES" {}
 
 
 resource "aws_elb" "moduleelb" {
   name = "${var.NAME}"
+  lifecycle {
+    ignore_changes = ["security_groups"]
+  }
   
   listener {
     instance_port     = "${var.DESTPORT}"
-    instance_protocol = "${var.PROTOCOL}"
+    instance_protocol = "tcp"
     lb_port           = "${var.PORT}"
-    lb_protocol       = "${var.PROTOCOL}"
+    lb_protocol       = "tcp"
   }
   
   instances                   = ["${var.INSTANCES}"]

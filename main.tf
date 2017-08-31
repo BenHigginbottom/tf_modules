@@ -22,7 +22,6 @@ module "latestAMI" {
   source = "./latestAMI"
 }
 
-
 module "ec2dist" {
   source = "./ec2dist"
   INSTANCES = 3
@@ -39,8 +38,19 @@ module "ELB" {
   SNET = "${module.scan.subnets}"
   PORT = "80"
   DESTPORT = "443"
-  PROTOCOL = "http"
   INSTANCES = "${module.ec2dist.privips}"
+}
+
+module "MariaRDS" {
+  source = "./MariaRDS"
+  identifier = "developmentdb"
+  storageamount = "10"
+  instance_class = "t2.micro"
+  db_name = "IAMDATABASE"
+  username = "IAMUSER"
+  password = "IAMPASSWORD"
+  dbkms = "${module.scan.rdsenckey}"
+  dbsnetgroup = "{module.scan.dbsnet}"
 }
 
 /*Debug Outputs*/
@@ -79,4 +89,8 @@ output "info" {
 
 output "DataSnet" {
   value = "${module.scan.dbsnet}"
+}
+
+output "rds_kms_arn" {
+  value = "${module.scan.rdsenckey}"
 }

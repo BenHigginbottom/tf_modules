@@ -28,6 +28,10 @@ data "aws_subnet" "databasesnet" {
 	}
 }
 
+data "aws_kms_alias" "rds" {
+  name = "alias/dbencryptkey"
+}
+
 output "names" {
   value = "${data.aws_availability_zones.available.names}"
 }
@@ -46,4 +50,9 @@ output "security_group" {
 
 output "dbsnet" {
 	value = "${data.aws_subnet.databasesnet.id}"
+}
+
+
+output "rdsenckey" {
+  value = "${data.aws_kms_alias.rds.arn}"
 }
