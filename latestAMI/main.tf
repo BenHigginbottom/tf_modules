@@ -1,8 +1,12 @@
-data "aws_ami" "ec2linux" {
+data "aws_ami" "ec2-linux" {
   most_recent = true
   filter {
     name = "name"
-    values = ["amzn-ami-hvm-*-x86_64-gp2"]
+    values = ["amzn-ami-*-x86_64-gp2"]
+  }
+  filter {
+    name = "virtualization-type"
+    values = ["hvm"]
   }
   filter {
     name = "owner-alias"
@@ -10,6 +14,6 @@ data "aws_ami" "ec2linux" {
   }
 }
 
-output "amiidlatest" {
-  value = "${data.aws_ami.ec2linux.image_id}"
-}
+
+
+

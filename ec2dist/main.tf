@@ -1,11 +1,3 @@
-variable "INSTANCES" {}
-variable "AMI" {}
-variable "VPCSG" {}
-variable "INSTTYPE" {}
-variable "AZ" {
-  type = "list"
-}
-
 resource "aws_instance" "example" {
   count = "${var.INSTANCES}"
   ami = "${var.AMI}"
@@ -15,6 +7,3 @@ resource "aws_instance" "example" {
 }
 
 
-output "privips" {
-  value = ["${aws_instance.example.*.private_ip}"]
-}
