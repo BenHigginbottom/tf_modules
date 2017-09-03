@@ -1,6 +1,5 @@
 variable "NAME" {}
-variable "SNET" {
-}
+//variable "SNET" {}
 variable "PORT" {}
 variable "DESTPORT" {}
 variable "INSTANCES" {
