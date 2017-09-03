@@ -1,5 +1,6 @@
 resource "aws_elb" "moduleelb" {
   name = "${var.NAME}"
+  subnets ="{$var.SNET}"
   lifecycle {
     ignore_changes = ["security_groups"]
   }
