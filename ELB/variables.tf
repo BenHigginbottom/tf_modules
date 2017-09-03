@@ -4,4 +4,6 @@ variable "SNET" {
 }
 variable "PORT" {}
 variable "DESTPORT" {}
-variable "INSTANCES" {}
+variable "INSTANCES" {
+	default = ""
+}
