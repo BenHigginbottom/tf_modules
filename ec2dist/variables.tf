@@ -1,4 +1,4 @@
-lvariable "INSTANCES" {}
+variable "INSTANCES" {}
 variable "AMI" {}
 variable "VPCSG" {}
 variable "INSTTYPE" {}
