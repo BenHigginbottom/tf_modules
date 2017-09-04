@@ -5,3 +5,4 @@ variable "INSTTYPE" {}
 variable "AZ" {
   type = "list"
 }
+variable = "SUBNETS" {}
