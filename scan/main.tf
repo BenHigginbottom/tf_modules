@@ -34,6 +34,8 @@ data "aws_subnet" "databasesnet" {
 	name = "tag:Usage"
 	values = ["Data"]
 	}
+  filter = "tag:Name"
+  values = ["Private-Testing-A"]
 }
 
 data "aws_kms_alias" "rds" {
