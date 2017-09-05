@@ -11,7 +11,7 @@ output "subnets" {
 }
 
 output "computesubnet" {
-  value = "${data.aws_subnet.TestingCompute.ids}"
+  value = "${data.aws_subnet_ids.TestingCompute.ids}"
 }
 
 output "security_group" {
