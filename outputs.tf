@@ -24,6 +24,9 @@ output "SnetIDS" {
   value = "${module.scan.subnets}"
 }
 
+output "ComputeSnetIDS" {
+  value = "${module.scan.computesubnet}"
+}
 output "SG" {
   value = "${module.scan.security_group}"
 }
