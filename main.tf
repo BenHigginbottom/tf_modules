@@ -4,26 +4,23 @@ provider "aws" {
 }
 
 
-module "caller" {
-	source = "./modules"
-}
-
 module "scan" {
-	source = "./scan"
+	source = "github.com/BenHigginbottom/tf_modules//scan"
 }
 
-/*
+
 module "caller" {
 	source = "github.com/BenHigginbottom/tf_modules//modules"
 }
-*/
+
 
 module "latestAMI" {
-  source = "./latestAMI"
+  source = "github.com/BenHigginbottom/tf_modules/latestAMI"
 }
 
+/*
 module "ec2dist" {
-  source = "./ec2dist"
+  source = "github.com/BenHigginbottom/tf_modules//ec2dist"
   INSTANCES = 3
   AZ = "${module.scan.names}"
   AMI = "${module.latestAMI.ec2linuxd}"
@@ -33,7 +30,7 @@ module "ec2dist" {
 
 
 module "ELB" {
-  source = "./ELB"
+  source = "github.com/BenHigginbottom/tf_modules//ELB"
   NAME = "Bens-Test-ELB"
   SNET = "${module.scan.subnets}"
   PORT = "80"
@@ -42,7 +39,7 @@ module "ELB" {
 }
 
 module "MariaRDS" {
-  source = "./MariaRDS"
+  source = "github.com/BenHigginbottom/tf_modules//MariaRDS"
   identifier = "developmentdb"
   storageamount = "10"
   instance_class = "t2.micro"
@@ -52,4 +49,4 @@ module "MariaRDS" {
   dbkms = "${module.scan.rdsenckey}"
   dbsnetgroup = "{module.scan.dbsnet}"
 }
-
+*/
