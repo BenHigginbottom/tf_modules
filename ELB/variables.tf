@@ -5,5 +5,6 @@ variable "SNET" {
 variable "PORT" {}
 variable "DESTPORT" {}
 variable "INSTANCES" {
-	default = ""
+  type = "list"
+	default = [""]
 }
