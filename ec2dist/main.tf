@@ -4,7 +4,7 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = ["${var.VPCSG}"]
   instance_type = "${var.INSTTYPE}"
   availability_zone = "${element(var.AZ, count.index)}"
-  subnet_id = "${var.SUBNETS}"
+  subnet_id = "${element(var.SUBNETS, count.index)}"
 }
 
 
