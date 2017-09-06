@@ -52,7 +52,6 @@ module "MariaRDS" {
 */
 module "EBS" { 
   source = "github.com/BenHigginbottom/tf_modules//EBS"
-  NAME = "AnExample"
   Size = "10"
   AvZ = "eu-west-1a"
   EBSKey = "${module.scan.ebsenckey}"
