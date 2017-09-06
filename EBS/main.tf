@@ -1,4 +1,4 @@
-resource "aws_ebs_volume" "example" {
+resource "aws_ebs_volume" "${var.NAME}" {
   availability_zone = "${var.AvZ}"
   encrypted = "true"
   kms_key_id = "${var.EBSKey}"

@@ -1,3 +1,6 @@
+variable "NAME" {
+  default = "example"
+}
 variable "AvZ" {}
 variable "EBSKey" {}
 variable "Size" {}
