@@ -18,7 +18,7 @@ module "latestAMI" {
   source = "github.com/BenHigginbottom/tf_modules/latestAMI"
 }
 
-/*
+
 module "ec2dist" {
   source = "github.com/BenHigginbottom/tf_modules//ec2dist"
   INSTANCES = 3
@@ -49,4 +49,10 @@ module "MariaRDS" {
   dbkms = "${module.scan.rdsenckey}"
   dbsnetgroup = "{module.scan.dbsnet}"
 }
-*/
+
+module "EBS" {
+  source = "github.com/BenHigginbottom/tf_modules//EBS"
+  size = "10"
+  AvZ = "eu-west-1a"
+  EBSKey = "${module.scan.ebskey}"
+}
