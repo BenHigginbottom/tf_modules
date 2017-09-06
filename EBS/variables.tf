@@ -5,7 +5,7 @@ variable "Type" {
   default = "gp2"
 }
 variable "IOPS" {
-  default = ""
+  default = "0"
 }
 variable "snapshotID" {
   default = ""
