@@ -26,3 +26,7 @@ output "dbsnet" {
 output "rdsenckey" {
   value = "${data.aws_kms_alias.rds.arn}"
 }
+
+output "ebsenckey" {
+  value = "${data.aws_kms_alias.ebs.arn}"
+}
