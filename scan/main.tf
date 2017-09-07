@@ -45,5 +45,5 @@ data "aws_kms_alias" "rds" {
 }
 
 data "aws_kms_alias" "ebs" {
-  name = "alias/rdsencryptkey"
+  name = "alias/ebsencryptkey"
 }

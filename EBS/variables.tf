@@ -1,3 +1,6 @@
+variable "Count" {
+  default = 1
+}
 variable "AvZ" {}
 variable "EBSKey" {}
 variable "Size" {}
