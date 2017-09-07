@@ -30,3 +30,7 @@ output "rdsenckey" {
 output "ebsenckey" {
   value = "${data.aws_kms_alias.ebs.arn}"
 }
+
+output "wildcardtest" {
+  value = "${data.aws_iam_role.lambda.arn}"
+}

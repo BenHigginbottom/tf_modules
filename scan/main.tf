@@ -47,3 +47,7 @@ data "aws_kms_alias" "rds" {
 data "aws_kms_alias" "ebs" {
   name = "alias/ebsencryptkey"
 }
+
+data "aws_iam_role" "lambda" {
+  role_name = "r53Lam*"
+}
