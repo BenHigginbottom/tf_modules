@@ -49,5 +49,5 @@ data "aws_kms_alias" "ebs" {
 }
 
 data "aws_iam_role" "lambda" {
-  role_name = "r53Lam*"
+  name = "r53Lam*"
 }
