@@ -1,3 +1,3 @@
 output "volid" {
-  value = ["${aws_ebs_volume.*.id}"]
+  value = ["${aws_ebs_volume.example.*.id}"]
 }
