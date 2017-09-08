@@ -6,5 +6,4 @@ resource "aws_ebs_volume" "example" {
   size = "${var.Size}"
   type = "${var.Type}"
   iops = "${var.IOPS}"
-  snapshot_id = "${var.snapshotID}"
 }
