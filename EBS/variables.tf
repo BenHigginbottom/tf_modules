@@ -1,7 +1,9 @@
 variable "Count" {
   default = 1
 }
-variable "AvZ" {}
+variable "AvZ" {
+  type = "list"
+}
 variable "EBSKey" {}
 variable "Size" {}
 variable "Type" {
