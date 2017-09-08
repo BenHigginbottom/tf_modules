@@ -12,6 +12,3 @@ variable "Type" {
 variable "IOPS" {
   default = "0"
 }
-variable "snapshotID" {
-  default = ""
-}
