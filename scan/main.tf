@@ -16,7 +16,7 @@ data "aws_subnet_ids" "Testing" {
 data "aws_subnet_ids" "TestingCompute" {
   vpc_id = "${data.aws_vpc.default.id}"
   tags {
-    Usage = "Compute"
+    My:Usage = "Compute"
   }
 }
 
@@ -31,7 +31,7 @@ data "aws_security_group" "Testing" {
 
 data "aws_subnet" "databasesnet" {
 	filter {
-	name = "tag:Usage"
+	name = "tag:My:Usage"
 	values = ["Data"]
 	}
   filter { 
