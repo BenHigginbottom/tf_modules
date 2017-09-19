@@ -16,7 +16,7 @@ data "aws_subnet_ids" "Testing" {
 data "aws_subnet_ids" "TestingCompute" {
   vpc_id = "${data.aws_vpc.default.id}"
   tags {
-    My:Usage = "Compute"
+    "My:Usage" = "Compute"
   }
 }
 
