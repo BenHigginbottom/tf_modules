@@ -30,9 +30,8 @@ data "aws_security_group" "Testing" {
 }
 
 data "aws_subnet" "databasesnet" {
-	filter {
-	name = "tag:My:Usage"
-	values = ["Data"]
+	tags {
+	"My:Usage" = "Data"
 	}
   filter { 
    name = "tag:Name"
